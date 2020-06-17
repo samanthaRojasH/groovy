@@ -1,2 +1,2 @@
 # groovy
-My projecyt in groovy
+My project in groovy
