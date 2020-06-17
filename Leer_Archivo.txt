@@ -1,0 +1,18 @@
+//Crear el objeto fileReader para abrir el archivo de los datos
+context.fileReader = new BufferedReader(new FileReader("C:\\Users\\Sandra Rojas\\OneDrive\\Quejas\\pruebas_quejas_22052020.csv"))
+//Leer la primer línea del archivo de datos
+firstLine = context.fileReader.readLine()
+//Divide la primera línea para asignación de los elementos del array
+String[] propData = firstLine.split(";")
+testCase.setPropertyValue("NumeroRadicacionEPS",propData[0])
+testCase.setPropertyValue("tipoIdentificacion",propData[1])
+testCase.setPropertyValue("Identificacion",propData[2])
+testCase.setPropertyValue("DireccionContacto",propData[3])
+testCase.setPropertyValue("TelefonoFijo",propData[4])
+testCase.setPropertyValue("NumeroCelular",propData[5])
+testCase.setPropertyValue("Descripcion",propData[6])
+testCase.setPropertyValue("PrimerNombre",propData[7])
+testCase.setPropertyValue("PrimerApellido",propData[8])
+testCase.setPropertyValue("SegundoApellido",propData[9])
+testCase.setPropertyValue("Especialidad",propData[10])
+testCase.setPropertyValue("CentroMedico",propData[11])

@@ -1,0 +1,19 @@
+/*Leer la próxima línea del archivo*/
+nextLine = context.fileReader.readLine()
+
+if(nextLine != null){
+ String[] propData = nextLine.split(";")
+ curTC = testRunner.testCase
+ curTC.setPropertyValue("NumeroRadicacionEPS",propData[0])
+curTC.setPropertyValue("tipoIdentificacion",propData[1])
+curTC.setPropertyValue("Identificacion",propData[2])
+curTC.setPropertyValue("DireccionContacto",propData[3])
+curTC.setPropertyValue("TelefonoFijo",propData[4])
+curTC.setPropertyValue("NumeroCelular",propData[5])
+curTC.setPropertyValue("Descripcion",propData[6])
+curTC.setPropertyValue("PrimerNombre",propData[7])
+curTC.setPropertyValue("PrimerApellido",propData[8])
+curTC.setPropertyValue("SegundoApellido",propData[9])
+curTC.setPropertyValue("Especialidad",propData[10])
+curTC.setPropertyValue("CentroMedico",propData[11])
+ testRunner.gotoStep(0)

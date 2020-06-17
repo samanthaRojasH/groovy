@@ -1,0 +1,38 @@
+String testcaseVar = testRunner.testCase.getPropertyValue("NumeroRadicacionEPS")
+String testcaseVar1 = testRunner.testCase.getPropertyValue("NumeroRadicado")
+
+def fichero
+def date = new Date().format("yyyyMMdd")
+log.info date
+def time = new Date().format("yyyy-MM-dd hh:mm:ss")
+log.info time
+
+File directory = new File ("C:\\Users\\Sandra Rojas\\OneDrive\\Quejas\\Quejas_Result\\Quejas_Result_" + date )
+
+if ( !directory.exists()){
+	 if (directory.mkdirs()) 
+	 {
+	 	fichero = new File("C:\\Users\\Sandra Rojas\\OneDrive\\Quejas\\Quejas_Result\\Quejas_Result_Directorio_OK_" + date + ".txt")
+		fichero.createNewFile()
+		fichero.append("Directorio Creado")	 	
+      } 
+      else {
+        	fichero = new File("C:\\Users\\Sandra Rojas\\OneDrive\\Quejas\\Quejas_Result\\Quejas_Result_Error_Directorio.txt")
+		fichero.createNewFile()
+		fichero.append("Error al crear directorio")
+      }
+}
+
+try
+{
+	fichero = new File("C:\\Users\\Sandra Rojas\\OneDrive\\Quejas\\Quejas_Result\\Quejas_Result_" + date + "\\Quejas_Result_pruebas.xml")
+	fichero.createNewFile()
+	fichero.append(time + "\n\n")
+	fichero.append(testcaseVar +"\n\n")
+	fichero.append(testRunner.testCase.getTestStepByName("RadicarQueja").testRequest.response.responseContent + "\n\n")
+}
+catch(Exception ex){
+		fichero = new File("C:\\Users\\Sandra Rojas\\OneDrive\\Quejas\\Quejas_Result\\Pruebas_Quejas_Error.txt")
+		fichero.createNewFile()
+		fichero.append(ex)
+}	
